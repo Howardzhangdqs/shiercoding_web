@@ -4,8 +4,6 @@ sidebar_position: 1.3
 
 # 社团成就
 
-**我们还是一个很新的社团，更多成就需要你的参与！**
-
 ## 社员风采
 
 [喜报｜祝贺市二学子在全国青少年信息学奥林匹克联赛中获一等奖！](https://mp.weixin.qq.com/s/5-ugpxn3PzLMqCxaY1aGhw)
@@ -21,3 +19,11 @@ sidebar_position: 1.3
 ## 相关作品
 
 [上海市第二中学全景](https://www.720yun.com/vr/29f29x869bv)
+
+<br/>
+
+```mdx-code-block
+
+<h1>我们还是一个很新的社团（今天是社团成立的第{((+new Date()-(+new Date("2022.9.1"))) / (1000 * 60 * 60 * 24)).toFixed(0)}天），创造更多辉煌需要你的加入！</h1>
+
+```

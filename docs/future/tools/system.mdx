@@ -1,0 +1,83 @@
+# Linux操作系统
+
+## 简述
+
+[知乎 - 什么是Linux系统？](https://zhuanlan.zhihu.com/p/75779637)
+
+简单来说就是一个操作系统，不过与我们日常用的Windows/MacOS不同，它的主体是命令行，图形界面不过是附带的功能，所以在使用这个操作系统时，我们更多的是直接使用命令行。
+
+Linux系统应用之广泛相信各位也有所耳闻，达到航天，小到套壳哄蒙，无不是基于Linux之上。
+
+甚至有个笑话这么说的：
+
+> 火星是宇宙中第二个Linux设备数量超过Windows的行星。
+
+第一个Linux设备数量超过Windows的行星是地球，而火星上可能只有Linux系统。
+
+## 使用
+
+近些年随着一个叫`WebAssembly`的技术的出现（这玩意真的是魔鬼），浏览器能够直接运行一类名为`wasm`的二进制文件，这种文件可以由编译型语言直接编译生成。由此衍生出了亿些离谱的玩意，比如把Linux系统的源代码编译为`wasm`放进浏览器运行，比如 [webvm.io](webvm.io) 这个网站干的。
+
+打开网页，页面大概长这样：
+
+```
+                        __      __   _  __   ____  __       
+                        \ \    / /__| |_\ \ / /  \/  | 
+                         \ \/\/ / -_) '_ \ V /| |\/| | 
+                          \_/\_/\___|_.__/\_/ |_|  |_|  
+
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+|                                                                             |
+| WebVM is a server-less virtual Linux environment running fully client-side  |
+| in HTML5/WebAssembly.                                                       |
+|                                                                             |
+| WebVM is powered by the CheerpX virtualization engine, which enables safe,  |
+| sandboxed client-side execution of x86 binaries on any browser.             |
+|                                                                             |
+| CheerpX includes an x86-to-WebAssembly JIT compiler, a virtual block-based  |
+| file system, and a Linux syscall emulator.                                  |
+|                                                                             |
+| [NEW!] WebVM now supports full TCP and UDP networking via Tailscale!        |
+| Click on 'Tailscale Login' to enable it. Read the announcement:             |
+|                                                                             |
+| https://leaningtech.com/webvm-virtual-machine-with-networking-via-tailscale |
+|                                                                             |
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
+   Welcome to WebVM (build 20230116). If unsure, try these examples:
+
+     python3 examples/python3/fibonacci.py 
+     gcc -o helloworld examples/c/helloworld.c && ./helloworld
+     objdump -d ./helloworld | less -M
+     vim examples/c/helloworld.c
+     curl --max-time 15 parrot.live  # requires networking
+```
+
+这时候你的浏览器就会开始下载一个精简版的Linux系统，下载完毕后就会出现一个`user@:~$ `样子的语句就可以正常玩了。
+
+```bash
+     ...
+     curl --max-time 15 parrot.live  # requires networking
+
+user@:~$ 
+```
+
+其他一些类似的离谱的网站，比如这个：[copy.sh/v86/](http://copy.sh/v86/)，他直接写了个虚拟机，可以加虚拟盘片。
+
+两个网站速度慢的不分伯仲，不过我更推荐下面这个 [copy.sh/v86/](http://copy.sh/v86/)，为了贴近常用的Ubuntu系统，建议你 ~~自己装一台Linux系统的电脑~~ 安装[WSL](https://learn.microsoft.com/zh-cn/windows/wsl/install)（微软推出的在Windows上跑的Linux子系统，力荐）或者直接使用 [copy.sh/v86/?profile=archlinux](http://copy.sh/v86/?profile=archlinux) 这个系统镜像。
+
+## 安装
+
+电脑存储空间不够或者决定用在线版的可以直接跳过这里。
+
+[知乎 - 史上最全的WSL安装教程](https://zhuanlan.zhihu.com/p/386590591)
+
+直接按照这个教程做完前两个大步骤即可，其他都是配置一些日常用不到的功能的。Microsoft Store 中建议安装 [Ubuntu 22.04.1 LTS](https://www.microsoft.com/store/productId/9PN20MSR04DW)
+
+## 拓展阅读
+
+[知乎- Linux系统发展史](https://zhuanlan.zhihu.com/p/343203468)
+
+[Linus 大神 F**k 英伟达](https://www.zhihu.com/zvideo/1288860809939537920)
+
+我之前在2022年11月12日看到一篇很好的文章，但是找不到了。
