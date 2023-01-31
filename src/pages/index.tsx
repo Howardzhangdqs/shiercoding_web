@@ -29,7 +29,7 @@ export default function Home(): JSX.Element {
 	return (
 		<Layout
 			title="上海市第二中学编程社官网"
-			description="Description will go into a meta tag in <head />">
+			description="上海市第二中学编程社官网">
 			<HomepageHeader />
 			<main>
 				<HomepageFeatures />

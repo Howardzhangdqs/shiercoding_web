@@ -6,7 +6,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const github_link = "https://github.com/Howardzhangdqs/shiercoding_code";
 
-//** @type {import('@docusaurus/types').Config} */
 const config = {
 	title: '上海市第二中学编程社',
 	tagline: 'Code a better world',
@@ -30,9 +29,19 @@ const config = {
 	// metadata like html lang. For example, if your site is Chinese, you may want
 	// to replace "en" with "zh-Hans".
 	i18n: {
-		defaultLocale: 'zh-cn',
-		locales: ['zh-cn', "en"],
+		defaultLocale: 'zh-Hans',
+		locales: ['zh-Hans', "en"],
 	},
+
+	plugins: [
+		[
+			require.resolve("@easyops-cn/docusaurus-search-local"),
+			{
+			  hashed: true,
+			  language: ["en", "zh"],
+			},
+		],
+	],
 
 	presets: [
 		[
