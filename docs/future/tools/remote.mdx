@@ -1,0 +1,54 @@
+---
+tags: [linux, remote, HowardZhangdqs]
+description: Linux系统远程控制解决方案推荐
+title: Linux远程控制
+sidebar_position: 1
+---
+
+# Linux 远程控制<icon icon="gg:remote" inline={true}/>
+
+```mdx-code-block
+
+export const Logo = ({ icon, content, margin }) => (
+    <p align="center">
+        <div style={{ "display": "inline-block", "margin-left": (margin ? "0" : "1em"), "margin-top": ".5em" }}>
+            <icon icon={ icon } width="4em" height="4em" />
+            <br />
+            { content }
+        </div>
+    </p>
+);
+
+```
+
+## SSH
+
+### Tmux
+
+## OpenVSCode Server
+
+<Logo icon="vscode-icons:file-type-vscode" content="VSCode" />
+
+OpenVSCode Server 是一个把宇宙第一的编辑器 VSCode 搬到了浏览器里的项目。
+
+VSCode 本身是基于一个叫 [Electron](https://www.electronjs.org/) 的项目开发的，Electron 本质上又是一个 Chrome 内核的类似浏览器的东西，所以移植是可能的。
+
+项目地址：[Github - openvscode-server](https://github.com/gitpod-io/openvscode-server/)
+
+是的……这玩意暂时只支持Linux系统……不过不要紧，我们的目的就是在不太好编辑代码的Linux字符界面下写代码。
+
+它具体的原理大概是在被远程操控的电脑上运行一个 VSCode 内核，这个内核会开启一个 Web Service，将被远程操控的电脑当成一台服务器。通过其他电脑访问这个服务器开启的端口即可登录 OpenVSCode Server，并在浏览器里码代码。
+
+### 使用
+
+[Github - openvscode-server/releases](https://github.com/gitpod-io/openvscode-server/releases)
+
+根据你的性格选择是用`Pre-release`还是`Latest`版本（一般`Pre-release`会有点Bug，但是会相比前一个版本增加很多新功能，`Latest`是经过公测后的稳定版）。
+
+然后根据被控制的电脑架构选择版本（一般为`x64`）。
+
+
+
+## Jupyter Lab
+
+<Logo icon="logos:jupyter" content="Jupyter" />

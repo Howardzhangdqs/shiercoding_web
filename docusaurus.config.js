@@ -52,12 +52,12 @@ async function createConfig() {
 		presets: [
 			[
 				'classic',
-				/** @type {import('@docusaurus/preset-classic').Options} */
 				({
 					docs: {
 						sidebarPath: require.resolve('./sidebars.js'),
 						remarkPlugins: [math],
 						rehypePlugins: [katex],
+						editUrl: github_link + "/edit/main"
 					},
 					blog: {
 						showReadingTime: true,

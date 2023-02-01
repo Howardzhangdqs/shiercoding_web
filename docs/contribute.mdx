@@ -4,32 +4,67 @@ sidebar_position: 1.4
 
 # Contribute
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## 基本信息
 
 本站由基于 [React](https://zh-hans.reactjs.org/) 的 [Docusaurus](https://docusaurus.io/zh-CN/) 构建。
 
 ## 网站部署
 
-### 下载&依赖安装
+### 下载
 
 ```bash
 $ git clone https://github.com/Howardzhangdqs/shiercoding_web.git
 $ cd shiercoding_web
-$ npm i
 ```
-
-:::tip
-
-如安装`pnpm`则建议使用`pnpm`安装依赖，即：
-```bash
-$ pnpm i
-```
-
-:::
 
 :::tip
 
 亦可使用 [GitHub Desktop](https://desktop.github.com/) 来克隆仓库与上传代码。
+
+:::
+
+### 依赖安装
+
+```bash
+$ pnpm i
+```
+
+:::info
+
+`Node.js`自带的包管理工具`npm`既不好用，在国内也很慢，也很占存储空间。推荐使用`yarn`或者`pnpm`作为包管理工具：
+
+
+```mdx-code-block
+<Tabs>
+  <TabItem value="pnpm" label="pnpm" default>
+```
+`pnpm`通过类似快捷方式的方法，让所有的依赖包都只在你的电脑上安装一次。
+```bash
+$ pnpm i
+```
+```mdx-code-block
+  </TabItem>
+  <TabItem value="cnpm" label="cnpm">
+```
+`cnpm`是淘宝镜像源的配套包管理工具，在国内的下载速度较为可观。
+```bash
+$ cnpm i
+```
+```mdx-code-block
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+```
+`yarn`包管理工具是由facebook公司开发的，能扁平化处理依赖，减少`node_modules`体积减少。
+```bash
+$ yarn install
+```
+```mdx-code-block
+  </TabItem>
+</Tabs>
+```
 
 :::
 

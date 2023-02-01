@@ -1,0 +1,136 @@
+---
+tags: [linux, HowardZhangdqs]
+description: Linux系统简述与快速上手
+sidebar_position: 0
+---
+
+# Linux 操作系统
+
+```mdx-code-block
+
+export const Logo = ({ icon, content, margin }) => (
+     <div style={{ "display": "inline-block", "margin-left": (margin ? "0" : "1em"), "margin-top": ".5em" }}>
+		<icon icon={ icon } width="4em" height="4em" />
+		<br />
+		{ content }
+	</div>
+);
+
+```
+
+## 简述
+
+<p align="center">
+	<Logo icon="logos:linux-tux" content="Linux本Linux" margin/>
+</p>
+
+最原始的 Linux 操作系统的图标就长上面那样，一只企鹅。
+
+[知乎 - 什么是 Linux 系统？](https://zhuanlan.zhihu.com/p/75779637)
+
+简单来说就是一个操作系统，不过与我们日常用的 Windows/MacOS 不同，它的主体是命令行，图形界面不过是附带的功能，所以在使用这个操作系统时，我们更多的是直接使用命令行。
+
+Linux 系统应用之广泛相信各位也有所耳闻，达到航天，小到套壳哄蒙，无不是基于 Linux 之上。
+
+甚至有个笑话这么说的：
+
+> 火星是宇宙中第二个 Linux 设备数量超过 Windows 的行星。
+
+第一个 Linux 设备数量超过 Windows 的行星是地球，而火星上可能只有 Linux 系统。
+
+### 发行版
+
+发行版是一些 企业/个人/爱 基于 Linux 内核而修改完成的自己的 Linux 系统，每个系统都有自己的风格，操作起来类似，但不完全类似，常见的有以下几种：
+
+<p align="center">
+	<Logo icon="logos:ubuntu" content="Ubuntu" margin/>
+	<Logo icon="logos:debian" content="Debian" />
+	<Logo icon="logos:archlinux" content="ArchLinux" />
+	<Logo icon="simple-icons:kalilinux" content="KaliLinux" />
+	<Logo icon="logos:freebsd" content="FreeBSD" />
+	<Logo icon="logos:redhat-icon" content="RedHat" />
+	<Logo icon="logos:fedora" content="Fedora" />
+	<Logo icon="simple-icons:lubuntu" content="Lubuntu" />
+	<Logo icon="fa-brands:suse" content="SUSE" />
+</p>
+
+其中Ubuntu上手最轻松，所以用户极多。
+
+## 使用
+
+近些年随着一个叫`WebAssembly`的技术的出现（这玩意真的是魔鬼），浏览器能够直接运行一类名为`wasm`的二进制文件，这种文件可以由编译型语言直接编译生成。由此衍生出了亿些离谱的玩意，比如把 Linux 系统的源代码编译为`wasm`放进浏览器运行，比如 [webvm.io](https://webvm.io) 这个网站干的。
+
+打开网页，页面大概长这样：
+
+```
+                        __      __   _  __   ____  __
+                        \ \    / /__| |_\ \ / /  \/  |
+                         \ \/\/ / -_) '_ \ V /| |\/| |
+                          \_/\_/\___|_.__/\_/ |_|  |_|
+
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+|                                                                             |
+| WebVM is a server-less virtual Linux environment running fully client-side  |
+| in HTML5/WebAssembly.                                                       |
+|                                                                             |
+| WebVM is powered by the CheerpX virtualization engine, which enables safe,  |
+| sandboxed client-side execution of x86 binaries on any browser.             |
+|                                                                             |
+| CheerpX includes an x86-to-WebAssembly JIT compiler, a virtual block-based  |
+| file system, and a Linux syscall emulator.                                  |
+|                                                                             |
+| [NEW!] WebVM now supports full TCP and UDP networking via Tailscale!        |
+| Click on 'Tailscale Login' to enable it. Read the announcement:             |
+|                                                                             |
+| https://leaningtech.com/webvm-virtual-machine-with-networking-via-tailscale |
+|                                                                             |
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
+   Welcome to WebVM (build 20XXXXXX). If unsure, try these examples:
+
+     python3 examples/python3/fibonacci.py
+     gcc -o helloworld examples/c/helloworld.c && ./helloworld
+     objdump -d ./helloworld | less -M
+     vim examples/c/helloworld.c
+     curl --max-time 15 parrot.live  # requires networking
+```
+
+这时候你的浏览器就会开始下载一个精简版的 Linux 系统，下载完毕后就会出现一个`user@:~$ `样子的语句就可以正常玩了。
+
+```bash
+     ...
+     curl --max-time 15 parrot.live  # requires networking
+
+# highlight-next-line
+user@:~$
+```
+
+其他一些类似的离谱的网站，比如这个：[copy.sh/v86/](http://copy.sh/v86/)，他直接写了个虚拟机，可以加虚拟盘片。
+
+两个网站速度慢的不分伯仲，不过我更推荐下面这个 [copy.sh/v86/](http://copy.sh/v86/)，为了贴近常用的 Ubuntu 系统，建议你 ~~自己装一台 Linux 系统的电脑~~ 安装[WSL](https://learn.microsoft.com/zh-cn/windows/wsl/install)（微软推出的在 Windows 上跑的 Linux 子系统，力荐）或者直接使用 [copy.sh/v86/?profile=archlinux](http://copy.sh/v86/?profile=archlinux) 这个系统镜像。
+
+## 安装 WSL
+
+电脑存储空间不够或者决定用在线版的可以直接跳过这里。
+
+[知乎 - 史上最全的 WSL 安装教程](https://zhuanlan.zhihu.com/p/386590591)
+
+直接按照这个教程做完前两个大步骤即可，其他都是配置一些日常用不到的功能的。Microsoft Store 中建议安装 [Ubuntu 22.04.1 LTS](https://www.microsoft.com/store/productId/9PN20MSR04DW)
+
+## 简单使用
+
+Linux 系统既然是一个命令行系统，命令必然是最重要的。一个优秀的 Linux 玩家可以完全不依靠图形化界面来操作 Linux 系统完成日常的码字工作。下面是收录的一些推荐的教程：
+
+[知乎 - Linux 基础知识汇总，看这一篇就够了](https://zhuanlan.zhihu.com/p/558405224)：几个基础的命令和快捷键，都很有用，建议基本掌握。
+
+[CSDN - linux 基础知识(基本认知、操作命令、常用技巧)](https://blog.csdn.net/qq_45149707/article/details/107283361?#Linux_1)：浏览一遍对 Linux 能干啥有一个基本认知即可，后面的 Docker 虽然很好用但是我们基本用不到。
+
+[菜鸟教程 - Linux 教程](https://www.runoob.com/linux/)：很详细，也是浏览一遍即可。
+
+## 拓展阅读
+
+[知乎- Linux 系统发展史](https://zhuanlan.zhihu.com/p/343203468)
+
+[Linus 大神 F\*\*k 英伟达](https://www.zhihu.com/zvideo/1288860809939537920)
+
+我之前在 2022 年 11 月 12 日看到一篇很好的文章，但是找不到了。
