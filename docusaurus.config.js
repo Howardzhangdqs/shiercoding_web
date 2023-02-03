@@ -173,6 +173,21 @@ async function createConfig() {
 				prism: {
 					theme: lightCodeTheme,
 					darkTheme: darkCodeTheme,
+					magicComments: [
+						{
+							className: 'theme-code-block-highlighted-line',
+							line: 'highlight-next-line',
+							block: { start: 'highlight-start', end: 'highlight-end' },
+						},
+						{
+							className: 'code-block-error-line',
+							line: 'error',
+						},
+						{
+							className: 'code-block-info-line',
+							line: 'info',
+						},
+					],
 				},
 			}),
 	};
