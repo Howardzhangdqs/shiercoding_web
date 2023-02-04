@@ -16,19 +16,23 @@ type FeatureItem = {
 };
 
 const FeatureList: FeatureItem[] = [
-	// {
-	// 	title: 'Easy to Use',
-	// 	Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-	// 	description: (
-	// 		<>
-	// 			Docusaurus was designed from the ground up to be easily installed and
-	// 			used to get your website up and running quickly.
-	// 		</>
-	// 	),
-	// },
+	{
+		title: '极佳的氛围',
+		Svg: require('@site/static/img/undraw_1.svg').default,
+		description: (
+			<>
+				社员们和谐友爱，一起用爱发电⚡。<br />
+				共同制作优秀项目。
+			</>
+		),
+		link: {
+			to: "/docs/demeanour",
+			display: "了解更多",
+		},
+	},
 	{
 		title: '顶级的阵容',
-		Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+		Svg: require('@site/static/img/undraw_2.svg').default,
 		description: (
 			<>
 				我们拥有全市二最顶尖的信息学人才。<br />
@@ -42,7 +46,7 @@ const FeatureList: FeatureItem[] = [
 	},
 	{
 		title: '丰富的资源',
-		Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+		Svg: require('@site/static/img/undraw_3.svg').default,
 		description: (
 			<>
 				直接组队代表学校参加全国级信息学科大赛。<br />
@@ -60,7 +64,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description, link }: FeatureItem) {
 	return (
-		<div className={clsx('col col--6')}>
+		<div className={clsx('col col--4')}>
 			<div className="text--center">
 				<Svg className={styles.featureSvg} role="img" />
 			</div>

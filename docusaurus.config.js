@@ -14,7 +14,7 @@ async function createConfig() {
 
 	return {
 		title: '上海市第二中学编程社',
-		tagline: 'Code a better world',
+		tagline: 'Code a better world.',
 		favicon: 'img/favicon.ico',
 
 		// Set the production url of your site here
@@ -22,6 +22,8 @@ async function createConfig() {
 		// Set the /<baseUrl>/ pathname under which your site is served
 		// For GitHub pages deployment, it is often '/<projectName>/'
 		baseUrl: '/',
+
+		staticDirectories: ['static'],
 
 		// GitHub pages deployment config.
 		// If you aren't using GitHub pages, you don't need these.
@@ -57,7 +59,7 @@ async function createConfig() {
 						sidebarPath: require.resolve('./sidebars.js'),
 						remarkPlugins: [math],
 						rehypePlugins: [katex],
-						editUrl: github_link + "/edit/main"
+						editUrl: github_link + "/edit/main",
 					},
 					blog: {
 						showReadingTime: true,
