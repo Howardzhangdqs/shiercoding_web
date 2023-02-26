@@ -1,6 +1,6 @@
 ---
 slug: welcome
-title: 欢迎来到ShierCoding博客！
+title: 【公告】欢迎来到ShierCoding博客！
 authors: [ bot ]
 tags: [ 公告 ]
 date: 2022-09-01T10:00
