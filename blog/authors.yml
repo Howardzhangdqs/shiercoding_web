@@ -1,9 +1,14 @@
 HowardZhangdqs:
   name: HowardZhangdqs
-  title: 24届社长
+  title: 24届 | 核心社员 | 社长
   url: https://github.com/HowardZhangdqs
   image_url: https://pica.zhimg.com/v2-8a3044c575ba7ad3cd07fd63d55aae20.jpg?source=32738c0c
 
 bot:
   name: ShierCoding 推送机器人
-  image_url: https://tudingtu.cn/i/2023/02/04/n9upsz.png
+  image_url: /favicon/bot.png
+  title: 机器人
+
+Guan:
+  name: Guan
+  title: 24届 | 核心社员
