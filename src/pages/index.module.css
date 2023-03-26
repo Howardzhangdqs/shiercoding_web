@@ -3,6 +3,8 @@
  * and scoped locally.
  */
 
+@import url('https://fonts.font.im/css?family=Ubuntu+Mono:400');
+
 .heroBanner {
 	padding: 4rem 0;
 	text-align: center;
@@ -12,7 +14,7 @@
 }
 
 .monospace {
-	font-family: "Lucida Console", Courier, monospace;
+	font-family: 'Ubuntu Mono', monospace;
 }
 
 .hero_color_white {
