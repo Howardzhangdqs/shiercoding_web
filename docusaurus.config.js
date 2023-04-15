@@ -56,7 +56,7 @@ async function createConfig() {
 					quality: 70,
 					max: 1024, // max resized image's size.
 					min: 640, // min resized image's size. if original is lower, use that size.
-					disableInDev: false,
+					// disableInDev: false,
 				},
 			],
 		],
