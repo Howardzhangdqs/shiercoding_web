@@ -118,23 +118,6 @@ const testSiteOnline = (url: string, callback: Function) => {
 };
 
 export default function () {
-    const [results, setResults] = useState([]);
-
-    // useEffect(() => {
-    //     urls.forEach((item, index) => {
-    //         testSiteOnline(item, (isOnline: boolean) => {
-    //             setResults((prevResults) => {
-    //                 const newResults = [...prevResults];
-    //                 newResults[index] = {
-    //                     url: item,
-    //                     isOnline: isOnline,
-    //                 };
-    //                 return newResults;
-    //             });
-    //         });
-    //     });
-    // }, []);
-
     return (
         <Layout>
             <h1>这里收录一些看起来可以使用的ChatGPT代理们</h1>
