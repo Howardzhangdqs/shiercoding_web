@@ -12,3 +12,9 @@ bot:
 Guan:
   name: Guan
   title: 24届 | 核心社员
+
+SFKgroup:
+  name: SFKgroup
+  title: 24届 | 核心社员 | 副社长
+  url: https://github.com/SFKgroup/
+  image_url: https://github.com/SFKgroup.png

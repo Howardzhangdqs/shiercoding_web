@@ -30,6 +30,7 @@ function HomepageHeader() {
 		`print "${siteConfig.tagline}";`,               // Perl 5
 		`WriteLn('${siteConfig.tagline}');`,            // Pascal
 		`NSLog(@"${siteConfig.tagline}");`,             // Objective-C
+		`msg$: db '${siteConfig.tagline}$'`,            // 汇编
 	];
 
 	return (
@@ -39,9 +40,14 @@ function HomepageHeader() {
 				<p className={clsx("hero__subtitle", styles.hero_color_white, styles.monospace)}>
 					<Typewriter text={type_content} loop={true} delay={1500} />
 				</p>
-				<div className={styles.buttons}>
+				<div className={styles.buttons} style={{display: "inline", marginRight: "1em"}}>
 					<Link className="button button--secondary button--lg" to="/docs/intro">
 						社团简介
+					</Link>
+				</div>
+				<div className={styles.buttons} style={{display: "inline"}}>
+					<Link className="button button--secondary button--lg" to="/docs/welcome">
+						加入我们
 					</Link>
 				</div>
 			</div>
@@ -52,9 +58,9 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<Layout
-			title="上海市第二中学编程社官网"
-			description="上海市第二中学编程社官网">
+		<Layout>
+			{/* title="上海市第二中学编程社官网" */}
+			{/* description="上海市第二中学编程社官网" */}
 			<HomepageHeader />
 			<main>
 				<HomepageFeatures />
