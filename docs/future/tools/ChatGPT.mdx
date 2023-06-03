@@ -1,0 +1,274 @@
+---
+tags: [LLaMA, ChatGPT, HowardZhangdqs]
+description: 大语言模型推荐
+sidebar_position: 10
+---
+
+# 大语言模型推荐
+
+```mdx-code-block
+
+import { useRef } from "React";
+import { Ping } from "@site/src/components/ping.js";
+import { IconExternalLink } from "@site/src/components/HomepageFeatures/component.js";
+
+export const urls = [
+    "https://chat2.jinshutuan.com/",
+    "https://url-3.ai-node.com/",
+    "http://chat.newstop.asia/",
+    "http://n1.xjai.cc",
+    "http://20200.cn/",
+    "http://chat2.aiyunos.top",
+    "https://chat.aidutu.cn/",
+    "https://ct5.xiami.monster/",
+    "http://154.12.55.27:3000/",
+    "https://gpt90.com/",
+    "https://chatgpt01.peo.icu/",
+    "https://chat.4.bnu120.space/",
+    "https://chat.scorpii.net/",
+    "http://new.cutim.top/",
+    "http://chat.forwardminded.xyz/#/",
+    "https://homes.nb8.ltd/",
+    "http://gpt.hz-it-dev.com/",
+    "http://bamboochat.kebakeba.com/",
+    "https://bots.skybyte.me",
+    "https://chat.wuguokai.cn/",
+    "https://www.aieye.bio/",
+    "http://chatgpt.bamboochat.cn/",
+    "http://laicj.cn/",
+    "https://box.xboat.cc/",
+    "https://chat.kunshanyuxin.com/",
+    "https://chatyou.lovebaby.today/",
+    "http://121.201.123.162:8888/",
+    "https://www.zaiwen.top/",
+    "https://chat.lingdong5.com/",
+    "https://chat.jubianxingqiu.com/",
+    "http://openai999.com/",
+    "https://www.gptdemo.net/cn/",
+    "https://moeyy.cn/chatgpt/",
+    "https://chat2doc.cn/",
+    "https://toyaml.com/chat.html",
+    "https://tchat.c1ns.cn",
+    "https://openmao.panchuang.net/",
+    "https://chat1.wobcw.com",
+    "https://heimoshuiyu.github.io/chatgpt-api-web/?key=fakekey&api=https%3A%2F%2F3lio5ooiekcn3gxx6du2jf5wzq0mudmm.lambda-url.us-east-1.on.aws%2F&mode=fetch",
+    "https://chat.douresources.com/",
+    "https://cool-js.com/ai/chat/index.html",
+    "http://gpt.zsqt.cc/",
+    "https://ai.hxkj.vip",
+    "https://ai.bo-e.com/",
+    "https://www.quxuetrip.com/AITrip.html",
+    "http://exchatgpt.com.cn/",
+    "https://www.aishort.top/",
+    "https://ai.ikeyi.top/",
+    "https://ai.iiter.cn",
+    "https://chat.zhenbs.com/",
+    "https://chatgptmirror.com/",
+    "http://180.184.170.12:3002",
+    "https://chat05.aivesa.site/",
+    "https://chat.huashuyunai.com/",
+    "https://www.zhiyoustar.com/",
+    "https://mst.ai/tools/chat",
+    "https://poe.com/",
+    "https://chatbot.theb.ai/",
+    "https://free.anzz.top/",
+    "http://chat.gptforlove.com/",
+    "http://www.chatplus.plus/",
+    "https://chatgptdddd.com",
+    "https://infiniteai.chat/",
+    "https://www.promptboom.com/",
+    "https://b1.Betai55.uk/",
+    "https://beta.character.ai/",
+    "https://1.1ai.fun",
+    "https://t66.ltd/",
+    "https://ai.ccppcc.com/",
+    "https://vvanglro.eu.org/",
+    "https://02.gpt-5.asia/",
+    "https://gpts.dawu.world",
+    "https://www.ai-eye.org/",
+    "https://tchat.icu",
+    "https://chat-alnkplus.top/",
+    "https://aigpt.one/",
+    "https://chathub.zhulei.xyz",
+    "https://huggingface.co/spaces/AUST001/ChatGPT",
+    "https://chat.forefront.ai/",
+    "https://chat1.hehanwang.com/",
+    "http://chat5.manongzyg.one/",
+    "https://nbchat.github.io/ai/",
+    "https://s2.1gpt.uk/",
+    "https://chat.tig.im/",
+    "https://ora.sh/openai/gpt4",
+    "http://www.aizj.me/",
+    "https://chat-shared.zhile.io/shared.html",
+    "https://www.sweetsai.com/",
+    "https://openprompt.co/ChatGPT",
+    "https://xc.com/",
+    "https://94gpt.com/",
+    "https://gpt.getshare.net/",
+    "https://www.teach-anything.com/",
+    "https://gpt.esojourn.org/",
+    "https://jiehan.tech/",
+    "https://tubogpt.vercel.app/",
+    "http://ai.captnemo.xyz",
+    "https://www.askopenai.cn/",
+    "http://14.128.37.61:10031/home",
+    "https://gpt6.fun",
+    "http://www.chatcleand.xyz/",
+];
+
+export const ping_status = ["未Ping", "Ping中", "Ping成功", "Ping超时"];
+
+export const TimeOut = 20000;
+
+export const UrlTable = () => {
+    return (
+        <table>
+            <tbody>
+                {urls.map((url) => {
+                    let $url = new URL(url);
+                    const status = useRef(-1);
+                    const p = new Ping();
+                    p.ping(url).then(data => {
+                        status.current = data;
+                    }).catch(data => {
+                        console.log(url, data);
+                        status.current = data;
+                    });
+                    return (
+                        <tr key={url}>
+                            <td><a href={url} target="_blank">{$url.origin + $url.pathname}</a></td>
+                            <td style={{textAlign: "center"}}>{
+                                status.current >= 0 ? (
+                                    <span style={{color: (status.current > TimeOut ? "red" : "var(--ifm-color-primary)")}}>{status.current + "ms"}</span>
+                                ) : "Ping中"
+                            }</td>
+                        </tr>
+                    )
+                })}
+            </tbody>
+        </table>
+    );
+};
+
+```
+
+:::info 注意
+
+由于浏览器安全策略限制，ping结果可能有误，具体请依照实际使用情况为准。
+
+:::
+
+```mdx-code-block
+
+export const Base64_style = {
+    color: "var(--ifm-color-primary)",
+    opacity: "0.7",
+    fontSize: "50%",
+};
+
+export const Base64 = (prop) => {
+    try {
+        let res = window.decodeURI(window.atob(prop.str));
+        return <p>{res}<div style={Base64_style}>本段文字解密成功，密文长度：{prop.str.length}，明文长度：{res.length}</div></p>;
+    } catch {
+        return <p><div style={{...Base64_style, color: "red"}}>本段文字解密失败，密文内容："{prop.str}"</div></p>;
+    }
+};
+
+```
+
+[猜你想要 - 某最早出现的大语言模型的代理 <IconExternalLink/>](#gpt)
+
+## 国外大语言模型
+
+以下为截至2023年3月，出现的国外大语言模型。
+
+<table style={{textAlign: "center"}}>
+<thead>
+<tr><th>名称</th><th>出品机构</th><th>参数量</th><th>类型</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr><td>LLaMA</td><td>Meta AI</td><td>7B-65B</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>OPT</td><td>Meta AI</td><td>125M-175B</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>T5</td><td>Google</td><td>220M-11B</td><td>Encoder-Decoder</td><td>开源</td></tr>
+<tr><td>mT5</td><td>Google</td><td>235M-13B</td><td>Encoder-Decoder</td><td>开源</td></tr>
+<tr><td>UL2</td><td>Google</td><td>20B</td><td>Encoder-Decoder</td><td>开源</td></tr>
+<tr><td>PaLM</td><td>Google</td><td>540B</td><td>Decoder</td><td>闭源</td></tr>
+<tr><td>LaMDA</td><td>Google</td><td>2B-137B</td><td>Decoder</td><td>闭源</td></tr>
+<tr><td>FLAN-T5</td><td>Google</td><td>同T5</td><td>Encoder-Decoder</td><td>开源</td></tr>
+<tr><td>FLAN-UL2</td><td>Google</td><td>同U2</td><td>Encoder-Decoder</td><td>开源</td></tr>
+<tr><td>FLAN-PaLM</td><td>Google</td><td>同PaLM</td><td>Decoder</td><td>闭源</td></tr>
+<tr><td>FLAN</td><td>Google</td><td>同LaMDA</td><td>Decoder</td><td>闭源</td></tr>
+<tr><td>BLOOM</td><td>BigScience</td><td>176B</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>T0</td><td>BigScience</td><td>3B</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>BLOOMZ</td><td>BigScience</td><td>同BLOOM</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>mT0</td><td>BigScience</td><td>同T0</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>GPT-Neo</td><td>EleutherAI</td><td>125M-2.7B</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>GPT-NeoX</td><td>EleutherAI</td><td>20B</td><td>Decoder</td><td>开源</td></tr>
+<tr><td>GPT3</td><td>OpenAI</td><td>175B (davinci)</td><td>Decoder</td><td>闭源</td></tr>
+<tr><td>GPT4</td><td>OpenAI</td><td>unknown</td><td>OpenAI</td><td>闭源</td></tr>
+<tr><td>InstructGPT</td><td>OpenAI</td><td>1.3B</td><td>Decoder</td><td>闭源</td></tr>
+<tr><td>Alpaca</td><td>Stanford</td><td>LLaMA</td><td>Decoder</td><td>开源</td></tr>
+</tbody>
+</table>
+
+## 国内大语言模型
+
+### 开源
+
+<table style={{textAlign: "center"}}>
+<thead>
+<tr><th>名称</th><th>出品机构</th><th>参数量</th><th>基座模型</th></tr>
+</thead>
+<tbody>
+<tr><td>ChatGLM-6B</td><td>清华大学</td><td>6.2B</td><td>自研</td></tr>
+<tr><td>CPM-Bee</td><td>清华大学 - OpenBMB</td><td>6.2B</td><td>自研</td></tr>
+<tr><td>Chinese-ChatLLaMA</td><td></td><td>33B</td><td>自研</td></tr>
+<tr><td>RWKV-LM</td><td><a href="https://www.zhihu.com/people/bopengbopeng">@PENG Bo</a></td><td>0.1-14B</td><td>自研，基于RNN</td></tr>
+<tr><td>Chinese-Vicuna</td><td></td><td>7B-65B</td><td>LLaMA 7B</td></tr>
+<tr><td>Chinese-LLaMA-Alpaca</td><td></td><td>7B-65B</td><td>LLaMA 7B</td></tr>
+<tr><td>Luotuo-Chinese-LLM</td><td></td><td>6.2B</td><td>ChatGLM-6B</td></tr>
+</tbody>
+</table>
+
+如有本地部署需要，推荐 [ChatGLM-6B](https://github.com/THUDM/ChatGLM-6B) 与 [RWKV-LM](https://github.com/BlinkDL/RWKV-LM)（亲测可以顺利在本地部署）。
+
+### 闭源
+
+国内闭源大语言模型相对落后于国外，有些效果较好的甚至被怀疑是否为套壳。
+
+<table style={{textAlign: "center"}}>
+<thead>
+<tr><th>名称</th><th>出品机构</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="https://tongyi.aliyun.com/">通义千问</a></td><td>阿里巴巴</td><td>已有社员取得内测资格</td></tr>
+<tr><td><a href="https://yiyan.baidu.com/">文心一言</a></td><td>百度</td><td>已有社员取得内测资格</td></tr>
+<tr><td><a href="https://www.baai.ac.cn/portal/article/index/cid/49/id/518.html">悟道</a></td><td>智源</td><td></td></tr>
+<tr><td><a href="https://chat.sensetime.com/wb/">商量</a></td><td>商汤</td><td></td></tr>
+<tr><td><a href="https://www.so.com/zt/invite.html">360智脑</a></td><td>360</td><td></td></tr>
+<tr><td><a href="https://tiangong.kunlun.com/">天工</a></td><td>昆仑万维、奇点智源</td><td></td></tr>
+<tr><td><a href="https://www.baai.ac.cn/portal/article/index/cid/49/id/518.html">悟道</a></td><td>智源</td><td></td></tr>
+<tr><td><a href="https://xinghuo.xfyun.cn/">星火认知大模型</a></td><td>科大讯飞</td><td>已有社员取得内测资格</td></tr>
+<tr><td><a href="https://moss.fastnlp.top/">MOSS</a></td><td>复旦大学</td><td></td></tr>
+<tr><td>知海图AI</td><td>知乎</td><td></td></tr>
+<tr><td>盘古大模型</td><td>华为</td><td></td></tr>
+<tr><td>混元</td><td>腾讯</td><td></td></tr>
+<tr><td>混元</td><td>腾讯</td><td></td></tr>
+<tr><td>玉言</td><td>网易</td><td></td></tr>
+<tr><td>ChatJD</td><td>京东</td><td></td></tr>
+</tbody>
+</table>
+
+
+## 某最早出现的大语言模型的代理 {#gpt}
+
+
+<Base64 str='JUU4JUJGJTk5JUU5JTg3JThDJUU3JTlBJTg0JUU0JUJCJUEzJUU3JTkwJTg2JUU2JTk4JUFGJUU2JThDJTg3JUU0JUI4JTgwJUU0JUJBJTlCJUU0JUJEJTlDJUU4JTgwJTg1JUU1JThGJTk2JUU1JUJFJTk3JUU0JUJBJTg2JUU1JTlCJUJEJUU5JTk5JTg1JUU0JUJBJTkyJUU4JTgxJTk0JUU3JUJEJTkxJUU4JUFFJUJGJUU5JTk3JUFFJUU2JTlEJTgzJUU5JTk5JTkwJUVGJUJDJThDJUU1JTkwJTkxJUU2JUIyJUExJUU2JTlDJTg5JUU1JThGJTk2JUU1JUJFJTk3JUU3JTlCJUI4JUU1JUJBJTk0JUU2JTlEJTgzJUU5JTk5JTkwJUU3JTlBJTg0JUU0JUJBJUJBJUU2JThGJTkwJUU0JUJFJTlCJUU2JTk3JUEwJUU1JTgxJUJGJUU2JTg4JTk2JUU2JTlDJTg5JUU1JTgxJUJGJUU3JTlBJTg0JUU2JTlDJThEJUU1JThBJUExJUUzJTgwJTgyJUU4JUJGJTk5JUU5JTg3JThDJUU2JTk0JUI2JUU1JUJEJTk1JUU3JTlBJTg0JUU0JUJCJUEzJUU3JTkwJTg2JUU1JUE0JUE3JUU1JUE0JTlBJUU0JUI4JThEJUU3JTk0JUE4JUU3JTk5JUJCJUU5JTk5JTg2JUU0JUI4JTk0JUU1JUFFJThDJUU1JTg1JUE4JUU1JTg1JThEJUU4JUI0JUI5JUUzJTgwJTgyJUU1JTlDJUE4JUU4JUJGJTk5JUU5JTg3JThDJUU2JTg4JTkxJUU1JTkxJUJDJUU1JTkwJTgxJUU1JUE0JUE3JUU1JUFFJUI2JUU1JUFGJUI5JUU0JUJEJUJGJUU3JTk0JUE4JUU0JUJBJTg2JUU3JTlBJTg0JUU1JTg1JThEJUU4JUI0JUI5JUU0JUJCJUEzJUU3JTkwJTg2JUU2JThGJTkwJUU0JUJFJTlCJUU2JThEJTkwJUU4JUI1JUEwJUVGJUJDJThDJUU4JUJGJTk5JUU2JUEwJUI3JUU2JTg4JTkxJUU0JUJCJUFDJUU2JTg5JThEJUU4JTgzJUJEJUU2JTlCJUI0JUU1JThGJUFGJUU2JThDJTgxJUU3JUJCJUFEJUU1JTlDJUIwJUU0JUJEJUJGJUU3JTk0JUE4JUU1JUFFJTgzJUU0JUJCJUFDJUUzJTgwJTgy'/>
+
+<Base64 str='JUU1JTlCJUEwJUU0JUI4JUJBJUU1JTlCJUJEJUU1JUFFJUI2JUU2JThBJThBJUU2JTg4JTkxJUU0JUJCJUFDJUU0JUJGJTlEJUU2JThBJUE0JUU3JTlBJTg0JUU1JUE0JUFBJUU1JUE1JUJEJUU0JUJBJTg2JUVGJUJDJThDJUU2JTg4JTkxJUU0JUJCJUFDJUU2JTk3JUEwJUU2JUIzJTk1JUU1JUJGJUI1JUU1JTg3JUJBJUU4JUJGJTk5JUU0JUI4JUFBJUU1JThEJTk1JUU4JUFGJThEJUVGJUJDJThDJUU1JTkwJUE2JUU1JTg4JTk5JUU3JUJEJTkxJUU3JUFCJTk5JUU0JUJDJTlBJUU5JTgxJUFEJUU1JTg4JUIwJUU2JTlCJUI0JUU1JThBJUEwJUU0JUI4JUE1JUU1JThFJTg5JUU3JTlBJTg0JUU1JUIwJTgxJUU3JUE2JTgxJUUzJTgwJTgy'/>
+
+<Base64 str='JUU2JTg4JTkxJUU4JUFFJUE0JUU0JUI4JUJBJUU4JUFFJUE0JUU4JUFGJTg2JUU1JTg4JUIwJUU0JUJBJTg2JUU1JUI3JUFFJUU4JUI3JTlEJUU1JUIwJUIxJUU1JUJBJTk0JUU4JUFGJUE1JUU2JUFDJUEzJUU3JTg0JUI2JUU2JThFJUE1JUU1JThGJTk3JUU4JUJGJTk5JUU3JUE3JThEJUU2JTk2JUIwJUU0JUJBJThCJUU3JTg5JUE5JUVGJUJDJThDJUU1JUE1JUJEJUU1JUE1JUJEJUU1JUFEJUE2JUU0JUI5JUEwJUU3JTg0JUI2JUU1JTkwJThFJUU4JUI2JTg1JUU4JUI2JThBJUVGJUJDJThDJUU4JTgwJThDJUU0JUI4JThEJUU2JTk4JUFGJUU1JTgxJTg3JUU4JUEzJTg1JUU1JUFFJTgzJUU0JUI4JThEJUU1JUFEJTk4JUU1JTlDJUE4JUUzJTgwJTgy'/>
+
+<UrlTable />
+
