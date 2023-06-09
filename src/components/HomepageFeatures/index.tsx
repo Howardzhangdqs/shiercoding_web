@@ -9,10 +9,7 @@ type FeatureItem = {
 	title: string;
 	Svg: React.ComponentType<React.ComponentProps<'svg'>>;
 	description: JSX.Element;
-	link?: {
-		to: string,
-		display: string
-	};
+	link?: any;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -53,13 +50,18 @@ const FeatureList: FeatureItem[] = [
 				大量竞赛经验与代码参考，助你轻松获奖。
 			</>
 		),
-		link: {
-			to: "/docs/future",
-			display: "增援未来计划",
-		},
+		link: [
+			{
+				to: "/docs/future",
+				display: "增援未来计划",
+			},
+			{
+				to: "/docs/future/tools/ChatGPT",
+				display: "ChatGPT代理",
+			},
+		],
 	},
 ];
-
 
 
 function Feature({ title, Svg, description, link }: FeatureItem) {
@@ -72,14 +74,21 @@ function Feature({ title, Svg, description, link }: FeatureItem) {
 				<h3>{title}</h3>
 				<p>{description}</p>
 				{
-					(link ? (
-						//<div className={styles.buttons}>
+					(link ? (Object.prototype.toString.call(link) == '[object Array]' ? (
+						link.map((item, index) => (
+							<div>
+								<Link to={item.to} target="_blank">
+									{item.display}
+									<IconExternalLink />
+								</Link>
+							</div>
+						))
+					) : (
 						<Link to={link.to} target="_blank">
 							{link.display}
 							<IconExternalLink />
 						</Link>
-						//</div>
-					) : (<></>))
+					)) : (<></>))
 				}
 			</div>
 		</div>

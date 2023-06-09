@@ -8,155 +8,9 @@ sidebar_position: 10
 
 ```mdx-code-block
 
-import { useRef } from "react";
-import { Ping } from "@site/src/components/ping.js";
-import { IconExternalLink } from "@site/src/components/HomepageFeatures/component.js";
-
-export const urls = [
-    "https://chat2.jinshutuan.com/",
-    "https://url-3.ai-node.com/",
-    "http://chat.newstop.asia/",
-    "http://n1.xjai.cc",
-    "http://20200.cn/",
-    "http://chat2.aiyunos.top",
-    "https://chat.aidutu.cn/",
-    "https://ct5.xiami.monster/",
-    "http://154.12.55.27:3000/",
-    "https://gpt90.com/",
-    "https://chatgpt01.peo.icu/",
-    "https://chat.4.bnu120.space/",
-    "https://chat.scorpii.net/",
-    "http://new.cutim.top/",
-    "http://chat.forwardminded.xyz/#/",
-    "https://homes.nb8.ltd/",
-    "http://gpt.hz-it-dev.com/",
-    "http://bamboochat.kebakeba.com/",
-    "https://bots.skybyte.me",
-    "https://chat.wuguokai.cn/",
-    "https://www.aieye.bio/",
-    "http://chatgpt.bamboochat.cn/",
-    "http://laicj.cn/",
-    "https://box.xboat.cc/",
-    "https://chat.kunshanyuxin.com/",
-    "https://chatyou.lovebaby.today/",
-    "http://121.201.123.162:8888/",
-    "https://www.zaiwen.top/",
-    "https://chat.lingdong5.com/",
-    "https://chat.jubianxingqiu.com/",
-    "http://openai999.com/",
-    "https://www.gptdemo.net/cn/",
-    "https://moeyy.cn/chatgpt/",
-    "https://chat2doc.cn/",
-    "https://toyaml.com/chat.html",
-    "https://tchat.c1ns.cn",
-    "https://openmao.panchuang.net/",
-    "https://chat1.wobcw.com",
-    "https://heimoshuiyu.github.io/chatgpt-api-web/?key=fakekey&api=https%3A%2F%2F3lio5ooiekcn3gxx6du2jf5wzq0mudmm.lambda-url.us-east-1.on.aws%2F&mode=fetch",
-    "https://chat.douresources.com/",
-    "https://cool-js.com/ai/chat/index.html",
-    "http://gpt.zsqt.cc/",
-    "https://ai.hxkj.vip",
-    "https://ai.bo-e.com/",
-    "https://www.quxuetrip.com/AITrip.html",
-    "http://exchatgpt.com.cn/",
-    "https://www.aishort.top/",
-    "https://ai.ikeyi.top/",
-    "https://ai.iiter.cn",
-    "https://chat.zhenbs.com/",
-    "https://chatgptmirror.com/",
-    "http://180.184.170.12:3002",
-    "https://chat05.aivesa.site/",
-    "https://chat.huashuyunai.com/",
-    "https://www.zhiyoustar.com/",
-    "https://mst.ai/tools/chat",
-    "https://poe.com/",
-    "https://chatbot.theb.ai/",
-    "https://free.anzz.top/",
-    "http://chat.gptforlove.com/",
-    "http://www.chatplus.plus/",
-    "https://chatgptdddd.com",
-    "https://infiniteai.chat/",
-    "https://www.promptboom.com/",
-    "https://b1.Betai55.uk/",
-    "https://beta.character.ai/",
-    "https://1.1ai.fun",
-    "https://t66.ltd/",
-    "https://ai.ccppcc.com/",
-    "https://vvanglro.eu.org/",
-    "https://02.gpt-5.asia/",
-    "https://gpts.dawu.world",
-    "https://www.ai-eye.org/",
-    "https://tchat.icu",
-    "https://chat-alnkplus.top/",
-    "https://aigpt.one/",
-    "https://chathub.zhulei.xyz",
-    "https://huggingface.co/spaces/AUST001/ChatGPT",
-    "https://chat.forefront.ai/",
-    "https://chat1.hehanwang.com/",
-    "http://chat5.manongzyg.one/",
-    "https://nbchat.github.io/ai/",
-    "https://s2.1gpt.uk/",
-    "https://chat.tig.im/",
-    "https://ora.sh/openai/gpt4",
-    "http://www.aizj.me/",
-    "https://chat-shared.zhile.io/shared.html",
-    "https://www.sweetsai.com/",
-    "https://openprompt.co/ChatGPT",
-    "https://xc.com/",
-    "https://94gpt.com/",
-    "https://gpt.getshare.net/",
-    "https://www.teach-anything.com/",
-    "https://gpt.esojourn.org/",
-    "https://jiehan.tech/",
-    "https://tubogpt.vercel.app/",
-    "http://ai.captnemo.xyz",
-    "https://www.askopenai.cn/",
-    "http://14.128.37.61:10031/home",
-    "https://gpt6.fun",
-    "http://www.chatcleand.xyz/",
-];
-
-export const ping_status = ["未Ping", "Ping中", "Ping成功", "Ping超时"];
-
-export const TimeOut = 20000;
-
-export const UrlTable = () => {
-    return (
-        <table>
-            <tbody>
-                {urls.map((url) => {
-                    let $url = new URL(url);
-                    const status = useRef(-1);
-                    const p = new Ping();
-                    p.ping(url).then(data => {
-                        status.current = data;
-                    }).catch(data => {
-                        console.log(url, data);
-                        status.current = data;
-                    });
-                    return (
-                        <tr key={url}>
-                            <td><a href={url} target="_blank">{$url.origin + $url.pathname}</a></td>
-                            <td style={{textAlign: "center"}}>{
-                                status.current >= 0 ? (
-                                    <span style={{color: (status.current > TimeOut ? "red" : "var(--ifm-color-primary)")}}>{status.current + "ms"}</span>
-                                ) : "Ping中"
-                            }</td>
-                        </tr>
-                    )
-                })}
-            </tbody>
-        </table>
-    );
-};
+import { UrlTable } from "@site/src/components/PingList";
 
 ```
-
-:::info 注意
-
-由于浏览器安全策略限制，ping结果可能有误，具体请依照实际使用情况为准。
-
-:::
 
 ```mdx-code-block
 
@@ -266,9 +120,10 @@ export const Base64 = (prop) => {
 
 <Base64 str='JUU4JUJGJTk5JUU5JTg3JThDJUU3JTlBJTg0JUU0JUJCJUEzJUU3JTkwJTg2JUU2JTk4JUFGJUU2JThDJTg3JUU0JUI4JTgwJUU0JUJBJTlCJUU0JUJEJTlDJUU4JTgwJTg1JUU1JThGJTk2JUU1JUJFJTk3JUU0JUJBJTg2JUU1JTlCJUJEJUU5JTk5JTg1JUU0JUJBJTkyJUU4JTgxJTk0JUU3JUJEJTkxJUU4JUFFJUJGJUU5JTk3JUFFJUU2JTlEJTgzJUU5JTk5JTkwJUVGJUJDJThDJUU1JTkwJTkxJUU2JUIyJUExJUU2JTlDJTg5JUU1JThGJTk2JUU1JUJFJTk3JUU3JTlCJUI4JUU1JUJBJTk0JUU2JTlEJTgzJUU5JTk5JTkwJUU3JTlBJTg0JUU0JUJBJUJBJUU2JThGJTkwJUU0JUJFJTlCJUU2JTk3JUEwJUU1JTgxJUJGJUU2JTg4JTk2JUU2JTlDJTg5JUU1JTgxJUJGJUU3JTlBJTg0JUU2JTlDJThEJUU1JThBJUExJUUzJTgwJTgyJUU4JUJGJTk5JUU5JTg3JThDJUU2JTk0JUI2JUU1JUJEJTk1JUU3JTlBJTg0JUU0JUJCJUEzJUU3JTkwJTg2JUU1JUE0JUE3JUU1JUE0JTlBJUU0JUI4JThEJUU3JTk0JUE4JUU3JTk5JUJCJUU5JTk5JTg2JUU0JUI4JTk0JUU1JUFFJThDJUU1JTg1JUE4JUU1JTg1JThEJUU4JUI0JUI5JUUzJTgwJTgyJUU1JTlDJUE4JUU4JUJGJTk5JUU5JTg3JThDJUU2JTg4JTkxJUU1JTkxJUJDJUU1JTkwJTgxJUU1JUE0JUE3JUU1JUFFJUI2JUU1JUFGJUI5JUU0JUJEJUJGJUU3JTk0JUE4JUU0JUJBJTg2JUU3JTlBJTg0JUU1JTg1JThEJUU4JUI0JUI5JUU0JUJCJUEzJUU3JTkwJTg2JUU2JThGJTkwJUU0JUJFJTlCJUU2JThEJTkwJUU4JUI1JUEwJUVGJUJDJThDJUU4JUJGJTk5JUU2JUEwJUI3JUU2JTg4JTkxJUU0JUJCJUFDJUU2JTg5JThEJUU4JTgzJUJEJUU2JTlCJUI0JUU1JThGJUFGJUU2JThDJTgxJUU3JUJCJUFEJUU1JTlDJUIwJUU0JUJEJUJGJUU3JTk0JUE4JUU1JUFFJTgzJUU0JUJCJUFDJUUzJTgwJTgy'/>
 
-<Base64 str='JUU1JTlCJUEwJUU0JUI4JUJBJUU1JTlCJUJEJUU1JUFFJUI2JUU2JThBJThBJUU2JTg4JTkxJUU0JUJCJUFDJUU0JUJGJTlEJUU2JThBJUE0JUU3JTlBJTg0JUU1JUE0JUFBJUU1JUE1JUJEJUU0JUJBJTg2JUVGJUJDJThDJUU2JTg4JTkxJUU0JUJCJUFDJUU2JTk3JUEwJUU2JUIzJTk1JUU1JUJGJUI1JUU1JTg3JUJBJUU4JUJGJTk5JUU0JUI4JUFBJUU1JThEJTk1JUU4JUFGJThEJUVGJUJDJThDJUU1JTkwJUE2JUU1JTg4JTk5JUU3JUJEJTkxJUU3JUFCJTk5JUU0JUJDJTlBJUU5JTgxJUFEJUU1JTg4JUIwJUU2JTlCJUI0JUU1JThBJUEwJUU0JUI4JUE1JUU1JThFJTg5JUU3JTlBJTg0JUU1JUIwJTgxJUU3JUE2JTgxJUUzJTgwJTgy'/>
+:::info 注意
 
-<Base64 str='JUU2JTg4JTkxJUU4JUFFJUE0JUU0JUI4JUJBJUU4JUFFJUE0JUU4JUFGJTg2JUU1JTg4JUIwJUU0JUJBJTg2JUU1JUI3JUFFJUU4JUI3JTlEJUU1JUIwJUIxJUU1JUJBJTk0JUU4JUFGJUE1JUU2JUFDJUEzJUU3JTg0JUI2JUU2JThFJUE1JUU1JThGJTk3JUU4JUJGJTk5JUU3JUE3JThEJUU2JTk2JUIwJUU0JUJBJThCJUU3JTg5JUE5JUVGJUJDJThDJUU1JUE1JUJEJUU1JUE1JUJEJUU1JUFEJUE2JUU0JUI5JUEwJUU3JTg0JUI2JUU1JTkwJThFJUU4JUI2JTg1JUU4JUI2JThBJUVGJUJDJThDJUU4JTgwJThDJUU0JUI4JThEJUU2JTk4JUFGJUU1JTgxJTg3JUU4JUEzJTg1JUU1JUFFJTgzJUU0JUI4JThEJUU1JUFEJTk4JUU1JTlDJUE4JUUzJTgwJTgy'/>
+由于浏览器安全策略限制，ping结果可能有误，具体请依照实际使用情况为准。
+
+:::
 
 <UrlTable />
-

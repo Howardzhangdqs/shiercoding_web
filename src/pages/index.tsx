@@ -33,6 +33,8 @@ function HomepageHeader() {
 		`msg$: db '${siteConfig.tagline}$'`,            // 汇编
 	];
 
+	const Btn_Style = { margin: ".2em" };
+
 	return (
 		<header className={clsx('hero hero--primary', styles.heroBanner)}>
 			<div className="container">
@@ -40,13 +42,13 @@ function HomepageHeader() {
 				<p className={clsx("hero__subtitle", styles.hero_color_white, styles.monospace)}>
 					<Typewriter text={type_content} loop={true} delay={1500} />
 				</p>
-				<div className={styles.buttons} style={{display: "inline", marginRight: "1em"}}>
-					<Link className="button button--secondary button--lg" to="/docs/intro">
+				<div className={styles.buttons}>
+					<Link className="button button--secondary button--lg" to="/docs/intro" style={Btn_Style}>
 						社团简介
 					</Link>
 				</div>
-				<div className={styles.buttons} style={{display: "inline"}}>
-					<Link className="button button--secondary button--lg" to="/docs/welcome">
+				<div className={styles.buttons}>
+					<Link className="button button--secondary button--lg" to="/docs/welcome" style={Btn_Style}>
 						加入我们
 					</Link>
 				</div>
