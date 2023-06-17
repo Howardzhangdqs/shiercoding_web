@@ -76,7 +76,7 @@ function Feature({ title, Svg, description, link }: FeatureItem) {
 				{
 					(link ? (Object.prototype.toString.call(link) == '[object Array]' ? (
 						link.map((item, index) => (
-							<div>
+							<div key={index}>
 								<Link to={item.to} target="_blank">
 									{item.display}
 									<IconExternalLink />
