@@ -200,8 +200,14 @@ async function createConfig() {
 						},
 					],
 				},
+				announcementBar: {
+					id: 'announcementBar',
+					content: `<a href="/docs/welcome">这是链接 👉 ${add_us_link} 👈 这是链接</a>`,
+				},
 			}),
 	};
-}
+};
+
+const add_us_link = `<a href="/docs/welcome">加入我们</a>`;
 
 module.exports = createConfig;
