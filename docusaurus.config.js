@@ -16,11 +16,9 @@ async function createConfig() {
 		title: '上海市第二中学编程社',
 		tagline: 'Code a better world.',
 		favicon: 'img/favicon.ico',
-
-		// Set the production url of your site here
+		
 		url: "https://shiercoding.netlify.app/",
-		// Set the /<baseUrl>/ pathname under which your site is served
-		// For GitHub pages deployment, it is often '/<projectName>/'
+		
 		baseUrl: '/',
 
 		staticDirectories: ['static'],
@@ -32,10 +30,7 @@ async function createConfig() {
 
 		onBrokenLinks: 'throw',
 		onBrokenMarkdownLinks: 'warn',
-
-		// Even if you don't use internalization, you can use this field to set useful
-		// metadata like html lang. For example, if your site is Chinese, you may want
-		// to replace "en" with "zh-Hans".
+		
 		i18n: {
 			defaultLocale: 'zh-Hans',
 			locales: ['zh-Hans'],
@@ -49,16 +44,6 @@ async function createConfig() {
 					language: ["en", "zh"],
 				},
 			],
-			// [
-			// 	'@docusaurus/plugin-ideal-image',
-			// 	{
-			// 		name: "img/[name].[hash:hex:8].[width].[ext]",
-			// 		quality: 70,
-			// 		max: 1024, // max resized image's size.
-			// 		min: 640, // min resized image's size. if original is lower, use that size.
-			// 		// disableInDev: false,
-			// 	},
-			// ],
 		],
 
 		presets: [
@@ -202,7 +187,7 @@ async function createConfig() {
 				},
 				announcementBar: {
 					id: 'announcementBar',
-					content: `<a href="/docs/welcome">这是链接 👉 ${add_us_link} 👈 这是链接</a>`,
+					content: `这是链接 👉 <a href="/docs/welcome">${add_us_link}</a> 👈 这是链接`,
 				},
 			}),
 	};

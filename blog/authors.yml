@@ -7,7 +7,7 @@ HowardZhangdqs:
 bot:
   name: ShierCoding 推送机器人
   image_url: /favicon/bot.png
-  title: 机器人
+  title: 社团动态推送机器人（无人维护）
 
 Guan:
   name: Guan

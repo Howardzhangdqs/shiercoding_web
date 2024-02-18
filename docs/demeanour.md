@@ -6,6 +6,8 @@ sidebar_position: 1.3
 
 ## 社员风采
 
+[微信公众号 - 喜报｜祝贺市二学子梁炜峻荣获全国青少年信息学奥林匹克联赛(NOIP2023)一等奖 编程社其余四位社员在CSP-S中获奖](https://mp.weixin.qq.com/s/xf4T7durnRJYCS-X8a0bWg)
+
 [微信公众号 - 喜报｜祝贺市二学子在全国青少年信息学奥林匹克联赛中获一等奖！](https://mp.weixin.qq.com/s/5-ugpxn3PzLMqCxaY1aGhw)
 
 [学校官网 - 我校高一2班学生梁炜峻荣获全国青少年信息学奥林匹克联赛（NOIP2021）二等奖](https://www.shiers.cn/articleList.aspx?typeId=5&id=14260)
@@ -22,11 +24,7 @@ sidebar_position: 1.3
 
 [720云 - 上海市第二中学全景](https://www.720yun.com/vr/29f29x869bv)
 
-[Github - BGsystem](https://github.com/Howardzhangdqs/BGsys)：1.x版本开源，之后版本暂时闭源。
-
-[Github - 青云弹幕机](https://github.com/Howardzhangdqs/Qingyun_Barrage)
-
-[Github - fx-991CN X 简明使用说明](https://github.com/Howardzhangdqs/fx-991CN-X-Usage)
+BGsystem：在电子白板桌面上显示课表、值日表等信息的工具。曾被由上海市科委、上海市教委和上海广播电视台联合主办的《少年爱迪生》报道。
 
 <br/>
 
