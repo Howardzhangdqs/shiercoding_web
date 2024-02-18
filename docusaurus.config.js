@@ -105,9 +105,14 @@ async function createConfig() {
 							label: '博客',
 							position: 'left'
 						},
+						// {
+						// 	href: github_link,
+						// 	label: 'GitHub',
+						// 	position: 'right',
+						// },
 						{
-							href: github_link,
-							label: 'GitHub',
+							href: 'https://www.shiers.cn',
+							label: '市二官网',
 							position: 'right',
 						},
 					],
@@ -129,19 +134,6 @@ async function createConfig() {
 							],
 						},
 						{
-							title: '友情链接',
-							items: [
-								{
-									label: '上海市第二中学官网',
-									href: 'https://www.shiers.cn',
-								},
-								{
-									label: "24届4班官网",
-									href: "https://qing-yun.netlify.app"
-								},
-							],
-						},
-						{
 							title: '快速通道',
 							items: [
 								{
@@ -155,14 +147,23 @@ async function createConfig() {
 							],
 						},
 						{
-							title: '更多',
+							title: '友情链接',
 							items: [
 								{
-									label: 'GitHub',
-									href: github_link,
+									label: '上海市第二中学官网',
+									href: 'https://www.shiers.cn',
 								},
 							],
 						},
+						// {
+						// 	title: '更多',
+						// 	items: [
+						// 		{
+						// 			label: 'GitHub',
+						// 			href: github_link,
+						// 		},
+						// 	],
+						// },
 					],
 					copyright: `Copyright © ${new Date().getFullYear()} 市二编程社, Inc.`,
 				},
